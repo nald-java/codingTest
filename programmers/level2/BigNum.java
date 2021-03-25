@@ -12,33 +12,33 @@ public class BigNum {
 //		
 		String number = "7987654321";
 		int k = 4;
-		ArrayList <Integer> listStartBig = new ArrayList<>(); // return°ªÀÇ ½ÃÀÛÀ§Ä¡ºÎÅÍ ³¡±îÁö ´ãÀ½
+		ArrayList <Integer> listStartBig = new ArrayList<>(); // returnê°’ì˜ ì‹œì‘ìœ„ì¹˜ë¶€í„° ëê¹Œì§€ ë‹´ìŒ
 
 		/*
-		 * number : ÁÖ¾îÁø ¼ıÀÚ 
-		 * k : Á¦°ÅÇÒ ¼ö ¼ıÀÚ
-		 * Çüº¯È¯À» ÇÏ°í ÇÒÁö ÆÄ½ÌÀ» ½ÃÅ³Áö.......
+		 * number : ì£¼ì–´ì§„ ìˆ«ì 
+		 * k : ì œê±°í•  ìˆ˜ ìˆ«ì
+		 * í˜•ë³€í™˜ì„ í•˜ê³  í• ì§€ íŒŒì‹±ì„ ì‹œí‚¬ì§€.......
 		 * 
-		 * 1) number¸¦ charArray¿¡ ´ãÀ½ 
-		 * 2) charÁß °¡Àå Å« ¼öÀÇ À§Ä¡¸¦ Ã£µÇ µÚ¿¡¼­ºÎÅÍ Á¦°ÅÇÒ¸¸Å­ÀÇ ¼ıÀÚ´Â Á¦¿Ü > ±× µÚ¿¡ ¼ıÀÚ°¡ ¸ğÀÚ¶ö ¼ö ÀÖÀ¸´Ï±î 
-		 * 3) ArrayList ¿¡ ¿Å±â°í 2¿¡¼­ Ã£Àº °¡Àå Å« ¼öº¸´Ù ¾Õ¿¡ À§Ä¡ÇÏ´Â ¼öµéÀº »èÁ¦
-		 * 4) number-kÀÇ ¼ıÀÚ¿¡ ¸ÂÃç list ¾ÕºÎÅÍ µÚÀÇ ¼ıÀÚ¿Í ºñ±³ÇÏ¿© ³·Àº ¼ıÀÚ¸¦ Á¦°Å
-		 * 5) ³²Àº ¼ıÀÚ°¡ ´Ù °°°Å³ª ¼ø¼­°¡ ³»¸²Â÷¼øÀÎ °æ¿ì¿¡´Â ³¡ÀÇ °ªµéÀ» Á¦°Å
-		 * 6) Integer¸¦ StringÀ¸·Î º¯È¯ ÈÄ ¸®ÅÏ
+		 * 1) numberë¥¼ charArrayì— ë‹´ìŒ 
+		 * 2) charì¤‘ ê°€ì¥ í° ìˆ˜ì˜ ìœ„ì¹˜ë¥¼ ì°¾ë˜ ë’¤ì—ì„œë¶€í„° ì œê±°í• ë§Œí¼ì˜ ìˆ«ìëŠ” ì œì™¸ > ê·¸ ë’¤ì— ìˆ«ìê°€ ëª¨ìë„ ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ 
+		 * 3) ArrayList ì— ì˜®ê¸°ê³  2ì—ì„œ ì°¾ì€ ê°€ì¥ í° ìˆ˜ë³´ë‹¤ ì•ì— ìœ„ì¹˜í•˜ëŠ” ìˆ˜ë“¤ì€ ì‚­ì œ
+		 * 4) number-kì˜ ìˆ«ìì— ë§ì¶° list ì•ë¶€í„° ë’¤ì˜ ìˆ«ìì™€ ë¹„êµí•˜ì—¬ ë‚®ì€ ìˆ«ìë¥¼ ì œê±°
+		 * 5) ë‚¨ì€ ìˆ«ìê°€ ë‹¤ ê°™ê±°ë‚˜ ìˆœì„œê°€ ë‚´ë¦¼ì°¨ìˆœì¸ ê²½ìš°ì—ëŠ” ëì˜ ê°’ë“¤ì„ ì œê±°
+		 * 6) Integerë¥¼ Stringìœ¼ë¡œ ë³€í™˜ í›„ ë¦¬í„´
 		 * 
 		 * 
-		 * °á°ú : ½Ã°£ÃÊ°ú.............
+		 * ê²°ê³¼ : ì‹œê°„ì´ˆê³¼.............
 		 */
 
 		char[] numberToChar = number.toCharArray();
-		//1) number¸¦ charArray¿¡ ´ãÀ½
+		//1) numberë¥¼ charArrayì— ë‹´ìŒ
 		
-		int biggestCharLocated = 0; // °¡Àå Å« ¼ıÀÚ
+		int biggestCharLocated = 0; // ê°€ì¥ í° ìˆ«ì
 
 		for (int i = 0; i < numberToChar.length-(numberToChar.length-k); i++) { 
-		//2) charÁß °¡Àå Å« ¼öÀÇ À§Ä¡¸¦ Ã£µÇ µÚ¿¡¼­ºÎÅÍ Á¦°ÅÇÒ¸¸Å­ÀÇ ¼ıÀÚ´Â Á¦¿Ü > ±× µÚ¿¡ ¼ıÀÚ°¡ ¸ğÀÚ¶ö ¼ö ÀÖÀ¸´Ï±î 
+		//2) charì¤‘ ê°€ì¥ í° ìˆ˜ì˜ ìœ„ì¹˜ë¥¼ ì°¾ë˜ ë’¤ì—ì„œë¶€í„° ì œê±°í• ë§Œí¼ì˜ ìˆ«ìëŠ” ì œì™¸ > ê·¸ ë’¤ì— ìˆ«ìê°€ ëª¨ìë„ ìˆ˜ ìˆìœ¼ë‹ˆê¹Œ 
 
-                if(numberToChar[i]=='9'){        // 9°¡ ÀÖÀ¸¸é ±×³É ½Ã°£³¶ºñÇÏÁö¸»°í break°©½Ã´Ù
+                if(numberToChar[i]=='9'){        // 9ê°€ ìˆìœ¼ë©´ ê·¸ëƒ¥ ì‹œê°„ë‚­ë¹„í•˜ì§€ë§ê³  breakê°‘ì‹œë‹¤
                 	break;
                 }
 				if (numberToChar[biggestCharLocated] < numberToChar[i]) {
@@ -47,43 +47,43 @@ public class BigNum {
 				}
 		}
 					
-		System.out.println("°¡Àå Å« ¼ö´Â ¹è¿­ÀÇ "+biggestCharLocated+"¹ø¤Š¿¡ ÀÖ´Ù");
+		System.out.println("ê°€ì¥ í° ìˆ˜ëŠ” ë°°ì—´ì˜ "+biggestCharLocated+"ë²ˆì¨°ì— ìˆë‹¤");
 
 		for (int i = biggestCharLocated; i < numberToChar.length; i++) {  
-		//3) ArrayList ¿¡ ¿Å±â°í 2¿¡¼­ Ã£Àº °¡Àå Å« ¼öº¸´Ù ¾Õ¿¡ À§Ä¡ÇÏ´Â ¼öµéÀº »èÁ¦
+		//3) ArrayList ì— ì˜®ê¸°ê³  2ì—ì„œ ì°¾ì€ ê°€ì¥ í° ìˆ˜ë³´ë‹¤ ì•ì— ìœ„ì¹˜í•˜ëŠ” ìˆ˜ë“¤ì€ ì‚­ì œ
 
 			listStartBig.add(Integer.parseInt(String.valueOf(numberToChar[i])));
 		}
 
-		System.out.println("listStartBig "+listStartBig+ " °ª¿¡¼­ Ãß°¡ÀûÀ¸·Î k1¸¸Å­ ´õ •û¾ßÇÔ");
+		System.out.println("listStartBig "+listStartBig+ " ê°’ì—ì„œ ì¶”ê°€ì ìœ¼ë¡œ k1ë§Œí¼ ë” ëº´ì•¼í•¨");
 		
 		int k1 = k - (number.length() - listStartBig.size()); 
-		// k1Àº k¿¡¼­ ArrayList¿¡ ´ãÀ» ¶§ »èÁ¦ÇÑ°ª(°¡Àå Å« ¼ö ¾Õ¿¡ ¼öµé)À» »«°ª
+		// k1ì€ kì—ì„œ ArrayListì— ë‹´ì„ ë•Œ ì‚­ì œí•œê°’(ê°€ì¥ í° ìˆ˜ ì•ì— ìˆ˜ë“¤)ì„ ëº€ê°’
 		
-		System.out.println("±× k1ÀÇ °ªÀº "+k1);
+		System.out.println("ê·¸ k1ì˜ ê°’ì€ "+k1);
 
-		int i = 1; // ArrayList¿¡¼­ ÇÊ¿ä¾ø´Â °ªÀ» Á¦°ÅÇÏ±â À§ÇÑ while ¹İº¹¹®¿¡ ¾²ÀÏ i
+		int i = 1; // ArrayListì—ì„œ í•„ìš”ì—†ëŠ” ê°’ì„ ì œê±°í•˜ê¸° ìœ„í•œ while ë°˜ë³µë¬¸ì— ì“°ì¼ i
 
-		while (k1 > 0) { // k1Àº ´õ »èÁ¦ÇØ¾ß ÇÏ´Â °¹¼ö
+		while (k1 > 0) { // k1ì€ ë” ì‚­ì œí•´ì•¼ í•˜ëŠ” ê°¯ìˆ˜
 
 			try {
 				if (listStartBig.get(i - 1) < listStartBig.get(i)) {
-					// 4) number-kÀÇ ¼ıÀÚ¿¡ ¸ÂÃç list ¾ÕºÎÅÍ µÚÀÇ ¼ıÀÚ¿Í ºñ±³ÇÏ¿© ¾ÕÀÌ ÀÛÀ¸¸é ¼ıÀÚ¸¦ Á¦°Å
+					// 4) number-kì˜ ìˆ«ìì— ë§ì¶° list ì•ë¶€í„° ë’¤ì˜ ìˆ«ìì™€ ë¹„êµí•˜ì—¬ ì•ì´ ì‘ìœ¼ë©´ ìˆ«ìë¥¼ ì œê±°
 					listStartBig.remove(i - 1);
-					k1--;   // »èÁ¦ÇßÀ¸´Ï±î ³²Àº »èÁ¦ÇØ¾ß ÇÏ´Â °¹¼ö -1
-					i = 1;  // Á¦°Å°¡ ¿Ï·áµÇ¾úÀ¸¸é ¾ÕµÚ°¡ ´Ş¶óÁö±â ‹š¹®¿¡ i´Ù½Ã ÃÊ±âÈ­ÇØ¼­ Ã³À½ºÎÅÍ ºñ±³
-					System.out.println("±×·¡¼­ –Q´Ù");
-				} else { // µÑ ´Ù ÇØ´çµÇÁö ¾Ê´Â °æ¿ì ´ÙÀ½ iÈ®ÀÎ
+					k1--;   // ì‚­ì œí–ˆìœ¼ë‹ˆê¹Œ ë‚¨ì€ ì‚­ì œí•´ì•¼ í•˜ëŠ” ê°¯ìˆ˜ -1
+					i = 1;  // ì œê±°ê°€ ì™„ë£Œë˜ì—ˆìœ¼ë©´ ì•ë’¤ê°€ ë‹¬ë¼ì§€ê¸° ë–„ë¬¸ì— ië‹¤ì‹œ ì´ˆê¸°í™”í•´ì„œ ì²˜ìŒë¶€í„° ë¹„êµ
+					System.out.println("ê·¸ë˜ì„œ ë»ˆë‹¤");
+				} else { // ë‘˜ ë‹¤ í•´ë‹¹ë˜ì§€ ì•ŠëŠ” ê²½ìš° ë‹¤ìŒ ií™•ì¸
 					i++;
 				}
 			} catch (RuntimeException e) {
 				if (i == listStartBig.size()) {
-					// 5) ³²Àº ¼ıÀÚ°¡ ´Ù °°°Å³ª ¼ø¼­°¡ ³»¸²Â÷¼øÀÎ °æ¿ì¿¡´Â ³¡ÀÇ °ªµéÀ» Á¦°Å
+					// 5) ë‚¨ì€ ìˆ«ìê°€ ë‹¤ ê°™ê±°ë‚˜ ìˆœì„œê°€ ë‚´ë¦¼ì°¨ìˆœì¸ ê²½ìš°ì—ëŠ” ëì˜ ê°’ë“¤ì„ ì œê±°
 					for (int j = listStartBig.size() - 1; 0 < k1; j--) {
 						listStartBig.remove(j);
 						k1--;
 					}
-					System.out.println("±×·±µ¥ ÀÌÁ¦´Â ¼ø¼­°¡ °°Àº°ª ¶Ç´Â ³»¸²Â÷¼øÀÌ¶ó ±×³É µÚ¿¡¼­ ºÎÅÍ –A´Ù");
+					System.out.println("ê·¸ëŸ°ë° ì´ì œëŠ” ìˆœì„œê°€ ê°™ì€ê°’ ë˜ëŠ” ë‚´ë¦¼ì°¨ìˆœì´ë¼ ê·¸ëƒ¥ ë’¤ì—ì„œ ë¶€í„° ëº¸ë‹¤");
 					break;
 				}
 			}
@@ -92,16 +92,16 @@ public class BigNum {
 		String answer = "";
 
 		for (int j = 0; j < listStartBig.size(); j++) { 
-			// 6) Integer¸¦ StringÀ¸·Î º¯È¯ ÈÄ ¸®ÅÏ
+			// 6) Integerë¥¼ Stringìœ¼ë¡œ ë³€í™˜ í›„ ë¦¬í„´
 			answer = answer + String.valueOf(listStartBig.get(j));
 
 		}
 
-		if (number.length() == 1) { // ±Ùµ¥ Ã³À½ºÎÅÍ ÁÖ¾îÁø°Ô 1ÀÚ¸® ¿´À¸¸é ±×³É number°¡ ´ä
+		if (number.length() == 1) { // ê·¼ë° ì²˜ìŒë¶€í„° ì£¼ì–´ì§„ê²Œ 1ìë¦¬ ì˜€ìœ¼ë©´ ê·¸ëƒ¥ numberê°€ ë‹µ
 			answer = number;
 		}
 
-		System.out.println("Á¤´äÀº " +answer);
+		System.out.println("ì •ë‹µì€ " +answer);
 
 	}
 }
